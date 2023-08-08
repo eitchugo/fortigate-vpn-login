@@ -25,7 +25,18 @@ clean: clean-pyc clean-build  ## Clean everything possible
 build: clean-build  ## Build and package under package/python, using pip
 	pip install --target ./package/python .
 
+.PHONY: dist
+dist: clean-build  ## Build dist packages for uploading to pypi
+	python -m build
+
 .PHONY: install
 install:  ## Locally install with pip
 	pip install --user .
 
+.PHONY: upload
+upload:  ## Upload to the PyPI package index
+	python -m twine upload --repository pypi dist/*
+
+.PHONY: upload-dev
+upload-dev:  ## Upload to the TestPyPI package index (development)
+	python -m twine upload --repository testpypi dist/*

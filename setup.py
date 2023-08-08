@@ -46,6 +46,12 @@ setup(
         'markupsafe==2.1.3',
         'psutil==5.9.5'
     ],
+    extras_require={
+        'dev': [
+            'build==0.10.0',
+            'twine-4.0.2'
+        ]
+    },
     entry_points={
         'console_scripts': [
             'fortigate-vpn-login=fortigate_vpn_login.cli:main'
