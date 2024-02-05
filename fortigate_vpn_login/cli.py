@@ -183,7 +183,7 @@ def main() -> int:
     else:
         if not os.getuid() == 0:
             command_line.append("sudo")
-            command_line = command_line + [str(openconnect_path)] + openconnect_arguments
+        command_line = command_line + [str(openconnect_path)] + openconnect_arguments
 
     env = os.environ.copy()
     env['LC_ALL'] = 'C'
